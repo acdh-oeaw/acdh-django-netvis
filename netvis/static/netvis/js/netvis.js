@@ -7,8 +7,10 @@ function showGraph(sourceurl, viscontainer) {
       React.createElement(NetworkVisualization.Visualization, {
         graph,
         dimensions: 2,
-        children: props =>
-          React.createElement(NetworkVisualization.ExportButton, props),
+        children: props => [
+            React.createElement(NetworkVisualization.ExportButton, props),
+            React.createElement(NetworkVisualization.Legend, props)
+        ],
         onNodeClick: ({
           node
         }) => {
