@@ -3,6 +3,12 @@
 History
 -------
 
+1.0.0 (2020-05-03)
+++++++++++++++++++
+
+* netvis-JS library does not load latest version any more.
+
+
 0.1.1 (2019-11-18)
 ++++++++++++++++++
 
