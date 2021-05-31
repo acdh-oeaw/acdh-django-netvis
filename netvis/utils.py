@@ -3,7 +3,62 @@ import random
 from django.urls import reverse
 from django.contrib.contenttypes.models import ContentType
 
-from browsing.browsing_utils import model_to_dict
+
+def model_to_dict(instance):
+    """
+    serializes a model.object to dict, including non editable fields as well as
+    ManyToManyField fields
+    """
+    field_dicts = []
+    for x in instance._meta.get_fields():
+        f_type = "{}".format(type(x))
+        field_dict = {
+            "name": x.name,
+            "help_text": getattr(x, 'help_text', ''),
+        }
+        try:
+            field_dict['extra_fields'] = x.extra
+        except AttributeError:
+            field_dict['extra_fields'] = None
+        if 'reverse_related' in f_type:
+            values = getattr(instance, x.name, None)
+            if values is not None:
+                field_dict['value'] = values.all()
+            else:
+                field_dict['value'] = []
+            if getattr(x, 'related_name', None) is not None:
+                field_dict['verbose_name'] = getattr(x, 'related_name', x.name)
+            else:
+                field_dict['verbose_name'] = getattr(x, 'verbose_name', x.name)
+            field_dict['f_type'] = 'REVRESE_RELATION'
+        elif 'related.ForeignKey' in f_type:
+            field_dict['verbose_name'] = getattr(x, 'verbose_name', x.name)
+            field_dict['value'] = getattr(instance, x.name, '')
+            field_dict['f_type'] = 'FK'
+        elif 'TreeForeignKey' in f_type:
+            field_dict['verbose_name'] = getattr(x, 'verbose_name', x.name)
+            field_dict['value'] = getattr(instance, x.name, '')
+            field_dict['f_type'] = 'FK'
+        elif 'related.ManyToManyField' in f_type:
+            values = getattr(instance, x.name, None)
+            if values is not None:
+                field_dict['value'] = values.all()
+            else:
+                field_dict['value'] = []
+            field_dict['verbose_name'] = getattr(x, 'verbose_name', x.name)
+            field_dict['f_type'] = 'M2M'
+        elif 'fields.DateTimeField' in f_type:
+            field_value = getattr(instance, x.name, '')
+            field_dict['verbose_name'] = getattr(x, 'verbose_name', x.name)
+            field_dict['f_type'] = 'DateTime'
+            if field_value:
+                field_dict['value'] = (field_value.strftime("%Y-%m-%d %H:%M:%S"))
+        else:
+            field_dict['verbose_name'] = getattr(x, 'verbose_name', x.name)
+            field_dict['value'] = f"{getattr(instance, x.name, '')}"
+            field_dict['f_type'] = 'SIMPLE'
+        field_dicts.append(field_dict)
+    return field_dicts
 
 
 def color_generator(number_of_colors=5):
@@ -15,7 +70,7 @@ def color_generator(number_of_colors=5):
 
     number_of_colors = number_of_colors
     color = [
-        "#"+''.join(
+        "#" + ''.join(
             [random.choice('0123456789ABCDEF') for j in range(6)]
         ) for i in range(number_of_colors)
     ]
