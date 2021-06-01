@@ -4,7 +4,6 @@ from django.http import JsonResponse
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.contenttypes.models import ContentType
-from django.views.generic import TemplateView
 
 from . models import NetVisCache
 from . utils import as_graph, qs_as_graph
@@ -54,17 +53,3 @@ def preview_graph_data(request, app_name, model_name):
         return JsonResponse({})
     graph = json.loads(item.graph_data_preview)
     return JsonResponse(graph)
-
-
-class CachednetvisView(TemplateView):
-    template_name = 'netvis/gen_netvis.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(CachednetvisView, self).get_context_data(**kwargs)
-        context["app_name"] = kwargs['app_name']
-        context["model_name"] = kwargs['model_name']
-        context["graph_url"] = reverse('netvis:cached_graph', kwargs={
-            'app_name': kwargs['app_name'],
-            'model_name': kwargs['model_name']
-        })
-        return context
