@@ -12,6 +12,7 @@ Welcome to acdh-django-netvis's documentation!
 
    readme
    installation
+   usage
    modules
    authors
    changelog
