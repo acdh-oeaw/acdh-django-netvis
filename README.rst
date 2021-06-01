@@ -13,6 +13,10 @@ acdh-django-netvis
 
 .. image:: https://codecov.io/gh/acdh-oeaw/acdh-django-netvis/branch/master/graph/badge.svg?token=WP3PFBLX6V
     :target: https://codecov.io/gh/acdh-oeaw/acdh-django-netvis
+
+.. image:: https://readthedocs.org/projects/acdh-django-netvis/badge/?version=latest
+    :target: https://acdh-django-netvis.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
     
 
 App to visualize model objects as network graph
@@ -45,6 +49,12 @@ Add acdh-django-netvis's URL patterns:
         url(r'^netvis/', include('netvis.urls', namespace="netvis")),
         ...
     ]
+
+
+Documentation
+--------
+
+https://acdh-django-netvis.readthedocs.io.
 
 Features
 --------
