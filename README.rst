@@ -52,12 +52,13 @@ Add acdh-django-netvis's URL patterns:
 
 
 Documentation
---------
+-------------
+
 
 https://acdh-django-netvis.readthedocs.io.
 
 Features
---------
+----------
 
 * TODO
 
@@ -72,7 +73,7 @@ Does the code actually work?
     (myenv) $ python manage.py test
 
 Credits
--------
+----------
 
 Tools used in rendering this package:
 
