@@ -51,13 +51,13 @@ setup(
     long_description=readme + '\n\n' + history,
     author='Peter Andorfer',
     author_email='peter.andorfer@oeaw.ac.at',
-    url='https://github.com/csae8092/acdh_django_netvis',
+    url='https://github.com/acdh-oeaw/acdh-django-netvis',
     packages=[
         'netvis',
     ],
     include_package_data=True,
     install_requires=[
-        'acdh-django-browsing',
+        'Django>=3.1',
     ],
     license="MIT",
     zip_safe=False,
