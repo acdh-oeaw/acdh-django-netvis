@@ -2,14 +2,15 @@
 acdh-django-netvis
 =============================
 
-.. image:: https://badge.fury.io/py/acdh_django_netvis.svg
-    :target: https://badge.fury.io/py/acdh_django_netvis
+.. image:: https://github.com/acdh-oeaw/acdh-django-netvis/actions/workflows/test.yml/badge.svg
+    :target: https://github.com/acdh-oeaw/acdh-django-netvis/actions/workflows/test.yml
 
-.. image:: https://travis-ci.org/csae8092/acdh_django_netvis.svg?branch=master
-    :target: https://travis-ci.org/csae8092/acdh_django_netvis
+.. image:: https://badge.fury.io/py/acdh-django-netvis.svg
+    :target: https://badge.fury.io/py/acdh-django-netvis
 
-.. image:: https://codecov.io/gh/csae8092/acdh_django_netvis/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/csae8092/acdh_django_netvis
+.. image:: https://codecov.io/gh/acdh-oeaw/acdh-django-netvis/branch/master/graph/badge.svg?token=WP3PFBLX6V
+    :target: https://codecov.io/gh/acdh-oeaw/acdh-django-netvis
+    
 
 App to visualize model objects as network graph
 
