@@ -5,8 +5,8 @@ acdh-django-netvis
 .. image:: https://github.com/acdh-oeaw/acdh-django-netvis/actions/workflows/test.yml/badge.svg
     :target: https://github.com/acdh-oeaw/acdh-django-netvis/actions/workflows/test.yml
 
-.. image:: https://github.com/acdh-oeaw/acdh-django-netvis/workflows/Build/badge.svg
-        :target: https://github.com/acdh-oeaw/acdh-django-netvis/workflows/Build/badge.svg
+.. image:: https://github.com/acdh-oeaw/acdh-django-netvis/actions/workflows/build.yml/badge.svg
+        :target: https://github.com/acdh-oeaw/acdh-django-netvis/actions/workflows/build.yml
 
 .. image:: https://badge.fury.io/py/acdh-django-netvis.svg
     :target: https://badge.fury.io/py/acdh-django-netvis
@@ -17,10 +17,6 @@ acdh-django-netvis
 
 App to visualize model objects as network graph
 
-Documentation
--------------
-
-The full documentation is at https://acdh_django_netvis.readthedocs.io.
 
 Quickstart
 ----------
@@ -63,8 +59,7 @@ Does the code actually work?
 ::
 
     source <YOURVIRTUALENV>/bin/activate
-    (myenv) $ pip install tox
-    (myenv) $ tox
+    (myenv) $ python manage.py test
 
 Credits
 -------
