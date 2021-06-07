@@ -23,7 +23,8 @@
     <div id="visualization"></div>
     <script src="{% static 'netvis/js/netvis.js' %}"></script>
     <script type="text/javascript">
-      showGraph("visualization", "{% url 'netvis:graph' app_name='example' model_name='mytext' pk=object.id %}")
+      const graphUrl = "{% url 'netvis:graph' app_name='example' model_name='mytext' pk=object.id %}"
+      showGraph("visualization", graphUrl)
     </script>
 </div>
 
