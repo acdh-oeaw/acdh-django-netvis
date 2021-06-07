@@ -20,10 +20,11 @@
       {{ object.text }}
     </div> 
     <div id="visualization" style="position: relative; height: 700px; background: #fafafa;"></div>
+    <script src="{% static 'netvis/js/netvis-simple.js' %}"></script>
     <script type="text/javascript">
       showGraph("{% url 'netvis:graph' app_name='example' model_name='mytext' pk=object.id %}", "visualization")
     </script>
-</div>admin/example/mytext/
+</div>
 
 </body>
 </html>
