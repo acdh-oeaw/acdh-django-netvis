@@ -20,13 +20,16 @@ To display a network in a template you'll need to
         <head>
             ....
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            <link rel="stylesheet" href="{% static 'netvis/css/netvis.css' %}" /> <!-- optional -->
             {% load_netvis_js %}
         </head>
         <body>
             ...
-            <div id="visualization" style="position: relative; height: 700px; background: #fafafa;"></div>
+            <div id="visualization"></div>
+            <script src="{% static 'netvis/js/netvis.js' %}"></script>
             <script type="text/javascript">
-            showGraph("{% url 'netvis:graph' app_name='example' model_name='mytext' pk=object.id %}", "visualization")
+                const graphUrl = "{% url 'netvis:graph' app_name='example' model_name='mytext' pk=object.id %}"
+            showGraph("visualization", graphUrl)
             </script>
         </body>
     </html>
