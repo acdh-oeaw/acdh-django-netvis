@@ -1,19 +1,10 @@
+{% extends "example/base.html" %}
 {% load static %}
 {% load netvis_extras %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>acdh-django-netvis</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-</head>
-<body>
-
+{% block content %}
 <div class="jumbotron text-center">
   <h1>ACDH-DJANGO-NETVIS</h1>
 </div>
-  
 <div class="container">
     <ul>
       <li>
@@ -24,6 +15,4 @@
       </li>
     </ul>
 </div>
-
-</body>
-</html>
+{% endblock content %}

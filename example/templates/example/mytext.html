@@ -1,24 +1,20 @@
+{% extends "example/base.html" %}
 {% load static %}
 {% load netvis_extras %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>{{ object.title }}</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+{% block script_header %}
   <link rel="stylesheet" href="{% static 'netvis/css/netvis.css' %}" />
   {% load_netvis_js %}
-</head>
-<body>
-
+{% endblock script_header %}
+{% block content %}
 <div class="jumbotron text-center">
   <h1>{{ object.title }}</h1>
+  <h2><a href="/">back</a></h2>
 </div>
   
 <div class="container">
     <div id="annotationcontent">
       {{ object.text }}
+      
     </div> 
     <div id="visualization"></div>
     <script src="{% static 'netvis/js/netvis.js' %}"></script>
@@ -27,6 +23,4 @@
       showGraph("visualization", graphUrl)
     </script>
 </div>
-
-</body>
-</html>
+{% endblock content %}
