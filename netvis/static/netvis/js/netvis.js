@@ -169,7 +169,7 @@ const createPopoverContent = ({ node, onDismiss, viscontainer, types }) => {
   nodeUl.className = 'list-unstyled'
 
   const popHeaderLink = document.createElement('a')
-  popHeaderLink.href = node['detail_view']
+  popHeaderLink.href = node['detail_view_url']
   popHeaderLink.innerText = `${node['label']}`
 
   const popHeader = document.createElement('h4')
@@ -190,7 +190,7 @@ const createPopoverContent = ({ node, onDismiss, viscontainer, types }) => {
           '__indexColor',
           'neighbors',
           'edges',
-          'detail_view',
+          'detail_view_url',
           'as_graph',
           'label',
         ].includes(key)
