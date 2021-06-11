@@ -10,7 +10,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='acdh_django_netvis',
-    version="3.0.0",
+    version="3.1.0",
     description="""App to visualize model objects as network graph""",
     long_description=readme + '\n\n' + history,
     author='Peter Andorfer',
